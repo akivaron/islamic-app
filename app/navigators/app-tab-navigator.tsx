@@ -1,5 +1,5 @@
 /**
- * The app navigator (formerly "AppNavigator" and "MainNavigator") is used for the primary
+ * The app navigator (formerly "AppTabNavigator" and "MainNavigator") is used for the primary
  * navigation flows of your app.
  * Generally speaking, it will contain an auth flow (registration, login, forgot password)
  * and a "main" flow which the user will use once logged in.
@@ -28,7 +28,7 @@ import { navigationRef } from "./navigation-utilities"
  *   https://reactnavigation.org/docs/params/
  *   https://reactnavigation.org/docs/typescript#type-checking-the-navigator
  */
-export type NavigatorParamList = {
+export type TabNavigatorParamList = {
   welcome: undefined
   demo: undefined
   demoList: undefined
@@ -36,7 +36,7 @@ export type NavigatorParamList = {
 }
 
 // Documentation: https://reactnavigation.org/docs/stack-navigator/
-const Stack = createNativeStackNavigator<NavigatorParamList>()
+const Stack = createNativeStackNavigator<TabNavigatorParamList>()
 
 const AppStack = () => {
   return (
@@ -56,7 +56,7 @@ const AppStack = () => {
 
 interface NavigationProps extends Partial<React.ComponentProps<typeof NavigationContainer>> {}
 
-export const AppNavigator = (props: NavigationProps) => {
+export const AppTabNavigator = (props: NavigationProps) => {
   const colorScheme = useColorScheme()
   return (
     <NavigationContainer
@@ -69,7 +69,7 @@ export const AppNavigator = (props: NavigationProps) => {
   )
 }
 
-AppNavigator.displayName = "AppNavigator"
+AppTabNavigator.displayName = "AppTabNavigator"
 
 /**
  * A list of routes from which we're allowed to leave the app when
@@ -81,4 +81,4 @@ AppNavigator.displayName = "AppNavigator"
  * `canExit` is used in ./app/app.tsx in the `useBackButtonHandler` hook.
  */
 const exitRoutes = ["welcome"]
-export const canExit = (routeName: string) => exitRoutes.includes(routeName)
+export const tabCanExit = (routeName: string) => exitRoutes.includes(routeName)
