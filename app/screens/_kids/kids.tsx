@@ -93,7 +93,7 @@ const FOOTER_CONTENT: ViewStyle = {
   paddingHorizontal: spacing[4],
 }
 
-export const KidspageScreen: FC<StackScreenProps<NavigatorParamList, "Kidspage">> = observer(
+export const HomepageScreen: FC<StackScreenProps<NavigatorParamList, "homepage">> = observer(
   ({ navigation }) => {
     const nextScreen = () => navigation.navigate("demo")
     const Tab = createBottomTabNavigator();
